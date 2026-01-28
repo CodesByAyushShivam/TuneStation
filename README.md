@@ -1,7 +1,7 @@
 ## KillerTune: *Your AdFree Music Player & Downloader*
 With KillerTune, you can listen and download **over 80 million** songs (number of songs available on JioSaavn) for **FREE** without any ads!
 
-Check out KillerTune (previously TuneStation) [here](https://tunestation.vercel.app/)
+Check out KillerTune [here](https://killertune.vercel.app/)
 
 ## APIs, Frameworks and Tools
  - ReactJS
