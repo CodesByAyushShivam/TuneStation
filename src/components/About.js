@@ -9,8 +9,8 @@ function About(props) {
 
     return (
         <div className={props.theme}>
-            <section className="text-gray-700 dark:text-gray-400 body-font bg-light-100 dark:bg-deep-900">
-                <div className="container px-5 pt-28 pb-10 mx-auto">
+            <section className="text-white body-font bg-gradient-to-b from-black via-black to-black border-t border-cyan-500/40">
+                <div className="container px-5 pt-28 pb-16 mx-auto">
                     <div className="flex flex-col text-center w-full mb-20">
                         <h2 className="text-xs text-green-700 dark:text-green-400 tracking-widest font-medium title-font mb-1">USING UNOFFICIAL JIOSAAVN API</h2>
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-black dark:text-white">KillerTune</h1>
@@ -104,19 +104,19 @@ function About(props) {
                         <div className="p-2 sm:w-1/2 w-full">
                             <div className="bg-pink-700 hover:bg-pink-900 rounded flex p-4 h-full items-center">
 
-                                <a href="https://github.com/codyandersan/" target="_blank" rel="noopener noreferrer" className="flex justify-center w-full title-font font-medium text-white">My Github Profile</a>
+                                <a href="https://github.com/codesbyayushshivam/" target="_blank" rel="noopener noreferrer" className="flex justify-center w-full title-font font-medium text-white">My Github Profile</a>
                             </div>
                         </div>
                         <div className="p-2 sm:w-1/2 w-full">
                             <div className="bg-violet-700 hover:bg-violet-900 rounded flex p-4 h-full items-center">
 
-                                <a href="https://codyandersan.github.io/" target="_blank" rel="noopener noreferrer" className="flex justify-center w-full title-font font-medium text-white">My Other Projects</a>
+                                <a href="https://codesbyayushshivam.github.io/" target="_blank" rel="noopener noreferrer" className="flex justify-center w-full title-font font-medium text-white">My Other Projects</a>
                             </div>
                         </div>
                         <div className="p-2  w-full">
                             <div className="bg-yellow-700 hover:bg-yellow-900 rounded flex p-4 h-full items-center">
 
-                                <a href="https://github.com/codyandersan/TuneStation" target="_blank" rel="noopener noreferrer" className="flex justify-center w-full title-font font-medium  text-white">KillerTune's Git Repository</a>
+                                <a href="https://github.com/codesbyayushshivam/KillerTune" target="_blank" rel="noopener noreferrer" className="flex justify-center w-full title-font font-medium  text-white">KillerTune's Git Repository</a>
                             </div>
                         </div>
                         

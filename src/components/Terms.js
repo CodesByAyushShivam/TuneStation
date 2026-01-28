@@ -9,7 +9,7 @@ function Terms(props) {
 
     return (
         <div className={props.theme}>
-            <div className="container px-5 pt-28 pb-10 mx-auto text-gray-700 dark:text-gray-400 body-font bg-light-100 dark:bg-deep-900 ">
+            <div className="container px-5 pt-28 pb-16 mx-auto text-gray-200 body-font bg-gradient-to-b from-black via-black to-black border-t border-cyan-500/40 ">
                 <div className="flex flex-col text-center w-full mb-10">
                     <h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 text-black dark:text-white'>Terms of Use for KillerTune</h1>
                     <p className='text-lg sm:text-xl text-gray-900 dark:text-gray-100'>Welcome to KillerTune, an online music streaming and downloading platform built for the sole purpose of personal use and learning. By accessing or using KillerTune, you agree to be bound by these Terms of Use. If you do not agree to these Terms of Use, please <b>do not</b> use KillerTune.</p>
@@ -29,7 +29,7 @@ function Terms(props) {
                     <br />
                     <li> <span className='font-bold text-gray-800 dark:text-gray-100'>&#8620; No Piracy:</span> You agree not to use KillerTune to pirate music or engage in any other illegal activity.</li>
                     <br />
-                    <li> <span className='font-bold text-gray-800 dark:text-gray-100'>&#8620; For JioSaavn and Copyright Owners:</span> In the event that JioSaavn or the copyright owners of the music available on KillerTune want the website to be taken down for any copyright infringement related case, they may raise an issue at the <a href="https://github.com/codyandersan/TuneStation" target="_blank" rel="noopener noreferrer" className='underline hover:text-black dark:hover:text-white'>KillerTune Git repository</a>. We will try our best to stop the functioning of this website as soon as possible.</li>
+                    <li> <span className='font-bold text-gray-800 dark:text-gray-100'>&#8620; For JioSaavn and Copyright Owners:</span> In the event that JioSaavn or the copyright owners of the music available on KillerTune want the website to be taken down for any copyright infringement related case, they may raise an issue at the <a href="https://github.com/codesbyayushshivam/KillerTune" target="_blank" rel="noopener noreferrer" className='underline hover:text-black dark:hover:text-white'>KillerTune Git repository</a>. We will try our best to stop the functioning of this website as soon as possible.</li>
                 </ul>
 
                 <br/>
