@@ -117,7 +117,7 @@ function Showcase(props) {
 
     return (
         <div className={props.theme}>
-            <section className="text-white bg-gradient-to-b from-black via-slate-950 to-deep-900 body-font pt-24 pb-16">
+            <section className="text-white bg-gradient-to-b from-black via-black to-black body-font pt-24 pb-16 border-t border-cyan-500/40">
                 <div className="max-w-6xl mx-auto px-4 lg:px-8">
                     {/* Top hero like YT Music */}
                     <div className="flex flex-col lg:flex-row gap-8 mb-10">

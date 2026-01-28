@@ -1,7 +1,7 @@
-## TuneStation: *Your AdFree Music Player & Downloader*
-With TuneStation, you can listen and download **over 80 million** songs (number of songs available on JioSaavn) for **FREE** without any ads!
+## KillerTune: *Your AdFree Music Player & Downloader*
+With KillerTune, you can listen and download **over 80 million** songs (number of songs available on JioSaavn) for **FREE** without any ads!
 
-Check out TuneStation [here](https://tunestation.vercel.app/)
+Check out KillerTune (previously TuneStation) [here](https://tunestation.vercel.app/)
 
 ## APIs, Frameworks and Tools
  - ReactJS

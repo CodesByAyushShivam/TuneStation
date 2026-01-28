@@ -24,22 +24,10 @@ function App() {
   const [progress, setProgress] = useState(0) //progress of loading bar
   const [details, setDetails] = useState(null)
   const [alert, setAlert] = useState(null)
-  const [theme, setTheme] = useState("dark")
+  const [theme] = useState("dark") // fixed dark theme
 
   const [albumId, setAlbumId] = useState(null)
   const [playlistId, setPlaylistId] = useState(null)
-
-  const toggleTheme = () => {
-    if (theme === "dark") {
-      setTheme("")
-      showAlert("Light mode has been enabled.")
-    }
-    else {
-      setTheme("dark")
-      showAlert("Dark mode has been enabled.")
-      // document.documentElement.classlist.add("dark")
-    }
-  }
 
   const showAlert = (message) => {
     setAlert(message)
@@ -49,15 +37,14 @@ function App() {
   }
 
   useEffect(() => {
-    showAlert("By using TuneStation, you agree to be bound by the Terms of Use.")
+    showAlert("By using KillerTune, you agree to be bound by the Terms of Use.")
   }, [])
 
   return (
     <div className={theme} >
-      <div className="bg-light-100 dark:bg-deep-900">
-        
+      <div className="bg-black">
         <LoadingBar
-          color='#ff0000'
+          color='#22d3ee'
           progress={progress}
           height={3}
           shadow={false}
@@ -65,7 +52,7 @@ function App() {
         />
         <div className='flex flex-col min-h-[100vh] justify-between	w-full'>
           <Router>
-            <NavBar toggleTheme={toggleTheme} theme={theme} />
+            <NavBar theme={theme} />
             <Alert message={alert} theme={theme} />
             <Routes>
 

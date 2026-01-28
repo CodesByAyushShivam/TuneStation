@@ -59,7 +59,7 @@ function Player(props) {
             navigate("/search")
             return
         }
-        document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - TuneStation`
+        document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - KillerTune`
         const audio = audioRef.current;
         document.getElementById("player").scrollIntoView(true)
         audio.addEventListener('loadedmetadata', () => {
@@ -88,11 +88,11 @@ function Player(props) {
     const handlePlayPause = () => {
         const audio = audioRef.current;
         if (isPlaying) {
-            document.title = `Paused ${props.details.name.replace(/&quot;/g, '"')} - TuneStation`
+            document.title = `Paused ${props.details.name.replace(/&quot;/g, '"')} - KillerTune`
             audio.pause();
             setIsPlaying(false);
         } else {
-            document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - TuneStation`
+            document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - KillerTune`
             audio.play();
             setIsPlaying(true);
         }
@@ -134,9 +134,9 @@ function Player(props) {
         <>
             {/* Show player only if details are recieved */}
             {props.details && <div className={props.theme}>
-                <section className="py-10 text-gray-900 dark:text-gray-100 bg-gradient-to-br from-light-100 via-indigo-200 to-light-200 dark:from-slate-900 dark:via-slate-950 dark:to-black body-font px-4" id="player">
+                <section className="py-10 text-gray-100 bg-gradient-to-br from-black via-black to-black body-font px-4" id="player">
                     <div className="min-h-screen flex flex-col items-center justify-center">
-                        <div className="max-w-xl w-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden">
+                        <div className="max-w-xl w-full bg-white/5 backdrop-blur-xl border border-cyan-500/50 rounded-3xl shadow-2xl overflow-hidden">
                             <div className="relative">
                                 <img
                                     id="thumbnail"
