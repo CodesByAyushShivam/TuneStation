@@ -67,19 +67,20 @@ function Results(props) { // query
     return (
         <>
             <section className="text-white body-font">
-                <div className="container px-5 py-8 mx-auto" id="blurred_results">
-                    <div className="flex flex-col text-center w-full mb-8">
-                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">
-                            Search results for &#10075;<span
-                                id="search_query"
-                                className="capitalize text-cyan-400"
-                            >{props.query}</span>&#10076;
-                        </h1>
-                    </div>
+                <div className="max-w-6xl px-4 md:px-6 py-8 mx-auto" id="blurred_results">
+                    <div className="bg-white/5 backdrop-blur-xl border border-cyan-500/40 rounded-3xl shadow-2xl px-4 md:px-6 py-6 md:py-8">
+                        <div className="flex flex-col text-center w-full mb-6 md:mb-8">
+                            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">
+                                Search results for &#10075;<span
+                                    id="search_query"
+                                    className="capitalize text-cyan-400"
+                                >{props.query}</span>&#10076;
+                            </h1>
+                        </div>
 
-                    <div className="flex flex-wrap -m-2" id="results">
-                        {results.map((song) => {
-                            return <Items key={song.id} song={song} onClick={
+                        <div className="flex flex-wrap -m-2" id="results">
+                            {results.map((song) => {
+                                return <Items key={song.id} song={song} onClick={
                                 async () => {
                                     if (song.type.toUpperCase() == "SONG") {
                                         let details = await getSongDetails(song.id)
@@ -98,9 +99,8 @@ function Results(props) { // query
                             } />
 
                         })}
+                        </div>
                     </div>
-
-
                 </div>
             </section>
         </>

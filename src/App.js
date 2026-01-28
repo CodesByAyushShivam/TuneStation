@@ -68,7 +68,7 @@ function App() {
 
               <Route exact path="/search" element={<Search setProgress={setProgress} theme={theme} setDetails={setDetails} setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} />}> </Route>
 
-              <Route exact path="/listen" element={<Player showAlert={showAlert} theme={theme} setProgress={setProgress} details={details} />}> </Route>
+              <Route exact path="/listen" element={<Player showAlert={showAlert} theme={theme} setProgress={setProgress} details={details} setDetails={setDetails} />}> </Route>
 
             </Routes>
             <Footer theme={theme} />

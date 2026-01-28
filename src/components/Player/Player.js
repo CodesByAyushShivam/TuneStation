@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from "react-router-dom";
+import Items from '../Items';
 
 function Player(props) {
     // Download Functions 
@@ -52,7 +53,40 @@ function Player(props) {
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
+    const [relatedSongs, setRelatedSongs] = useState([]);
     const audioRef = useRef(null);
+
+    const fetchRelatedSongs = async () => {
+        if (!props.details || !props.details.primaryArtists) return;
+        try {
+            const primaryArtist = props.details.primaryArtists.split(',')[0];
+            const query = encodeURIComponent(primaryArtist.trim());
+            const uri = `https://jiosaavn-api-codyandersan.vercel.app/search/all?query=${query}&page=1&limit=10`;
+            props.setProgress(30);
+            const response = await fetch(uri);
+            props.setProgress(60);
+            const resp = await response.json();
+            props.setProgress(80);
+
+            const songs = resp.data && resp.data.songs && resp.data.songs.results ? resp.data.songs.results : [];
+            const filtered = songs.filter((song) => song.id !== props.details.id);
+            setRelatedSongs(filtered.slice(0, 8));
+            props.setProgress(100);
+        } catch (e) {
+            props.setProgress(100);
+        }
+    }
+
+    const getSongDetails = async (songId) => {
+        const uri = `https://jiosaavn-api-codyandersan.vercel.app/songs?id=${songId}`;
+        props.setProgress(30);
+        const data = await fetch(uri);
+        props.setProgress(60);
+        const resp = await data.json();
+        props.setProgress(90);
+        props.setProgress(100);
+        return resp.data[0];
+    }
 
     useEffect(() => {
         if (!props.details) {
@@ -67,6 +101,7 @@ function Player(props) {
             setDuration(audio.duration);
             audio.play();
         });
+        fetchRelatedSongs();
 
         audio.addEventListener('timeupdate', () => {
             setCurrentTime(audio.currentTime);
@@ -276,6 +311,31 @@ function Player(props) {
                                 </li>
                             </ul>
                         </div>
+
+                        {relatedSongs && relatedSongs.length > 0 && (
+                            <div className="mt-10 w-full max-w-4xl mx-auto">
+                                <div className="bg-white/5 backdrop-blur-xl border border-cyan-500/40 rounded-3xl shadow-2xl px-4 md:px-6 py-4 md:py-6">
+                                    <h2 className="text-lg md:text-xl font-semibold mb-4 flex items-center gap-2">
+                                        More like this
+                                        <span className="text-xs font-normal text-cyan-300">based on {props.details.primaryArtists.split(',')[0]}</span>
+                                    </h2>
+                                    <div className="flex flex-wrap -m-2">
+                                        {relatedSongs.map((song) => (
+                                            <Items
+                                                key={song.id}
+                                                song={song}
+                                                onClick={async () => {
+                                                    if (!props.setDetails) return;
+                                                    const details = await getSongDetails(song.id);
+                                                    props.setDetails(details);
+                                                    navigate("/listen");
+                                                }}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </section>
             </div>}
