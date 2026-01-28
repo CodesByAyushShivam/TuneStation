@@ -101,7 +101,6 @@ function Player(props) {
             setDuration(audio.duration);
             audio.play();
         });
-        fetchRelatedSongs();
 
         audio.addEventListener('timeupdate', () => {
             setCurrentTime(audio.currentTime);
@@ -119,6 +118,12 @@ function Player(props) {
             audio.removeEventListener('ended', () => { });
         }
     }, []);
+
+    // Refresh related songs list whenever the current song details change
+    useEffect(() => {
+        if (!props.details) return;
+        fetchRelatedSongs();
+    }, [props.details]);
 
     const handlePlayPause = () => {
         const audio = audioRef.current;
@@ -324,18 +329,20 @@ function Player(props) {
                                             More like this
                                             <span className="text-xs font-normal text-cyan-300">based on {props.details.primaryArtists.split(',')[0]}</span>
                                         </h2>
-                                        <div className="flex flex-wrap -m-2">
+                                        {/* On larger screens, show one suggestion per line */}
+                                        <div className="flex flex-col">
                                             {relatedSongs.map((song) => (
-                                                <Items
-                                                    key={song.id}
-                                                    song={song}
-                                                    onClick={async () => {
-                                                        if (!props.setDetails) return;
-                                                        const details = await getSongDetails(song.id);
-                                                        props.setDetails(details);
-                                                        navigate("/listen");
-                                                    }}
-                                                />
+                                                <div key={song.id} className="py-1">
+                                                    <Items
+                                                        song={song}
+                                                        onClick={async () => {
+                                                            if (!props.setDetails) return;
+                                                            const details = await getSongDetails(song.id);
+                                                            props.setDetails(details);
+                                                            navigate("/listen");
+                                                        }}
+                                                    />
+                                                </div>
                                             ))}
                                         </div>
                                     </div>
